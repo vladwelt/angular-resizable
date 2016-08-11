@@ -37,6 +37,9 @@ angular.module('angularResizable', [])
                 scope.$watch('rHeight', function(value){
                     element[0].style[scope.rFlex ? flexBasis : 'height'] = scope.rHeight + 'px';
                 });
+                scope.$watch('rFlex', function(value){
+                    if(!scope.rFlex){ element[0].style.flexBasis = ''; }
+                });
 
                 element.addClass('resizable');
 
