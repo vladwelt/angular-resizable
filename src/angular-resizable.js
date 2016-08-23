@@ -49,7 +49,8 @@ angular.module('angularResizable', [])
                     dir = scope.rDirections || ['right'],
                     vx = scope.rCenteredX ? 2 : 1, // if centered double velocity
                     vy = scope.rCenteredY ? 2 : 1, // if centered double velocity
-                    inner = scope.rGrabber ? scope.rGrabber : '<span></span>',
+                    inner = scope.rGrabber ? scope.rGrabber : '<div class=\'resize\'><button class="o1"><span></span></button>'
+                                                               +'<button class="o2"><span></span></button></div>',
                     start,
                     dragDir,
                     axis,
@@ -157,6 +158,73 @@ angular.module('angularResizable', [])
                     };
                     grabber.addEventListener('mousedown', down, false);
                     grabber.addEventListener('touchstart', down, false);
+
+                    window.grabber = grabber;
+                    grabber.getElementsByClassName("o1")[0].addEventListener('click',function(){
+                        w = parseInt(style.getPropertyValue('width'));
+                        h = parseInt(style.getPropertyValue('height'));
+                        var prop, offset = 5, e, dir;
+                        if(direction==='left'||direction==='right'){
+                            dir='left';
+                            e='x';
+                        }else{
+                            dir='bottom';
+                            e='y';
+                        }
+
+                        switch(dir) {
+                            case 'top':
+                                prop = scope.rFlex ? flexBasis : 'height';
+                                element[0].style[prop] = h + (offset * vy) + 'px';
+                                break;
+                            case 'bottom':
+                                prop = scope.rFlex ? flexBasis : 'height';
+                                element[0].style[prop] = h - (offset * vy) + 'px';
+                                break;
+                            case 'right':
+                                prop = scope.rFlex ? flexBasis : 'width';
+                                element[0].style[prop] = w - (offset * vx) + 'px';
+                                break;
+                            case 'left':
+                                prop = scope.rFlex ? flexBasis : 'width';
+                                element[0].style[prop] = w + (offset * vx) + 'px';
+                                break;
+                        }
+                        updateInfo(e);
+                    })
+                    grabber.getElementsByClassName("o2")[0].addEventListener('click',function(){
+                        w = parseInt(style.getPropertyValue('width'));
+                        h = parseInt(style.getPropertyValue('height'));
+                        var prop, offset = 5, e, dir;
+
+                        if(direction==='left'||direction==='right'){
+                            dir='right';
+                            e='x';
+                        }else{
+                            dir='top';
+                            e='y';
+                        }
+
+                        switch(dir) {
+                            case 'top':
+                                prop = scope.rFlex ? flexBasis : 'height';
+                                element[0].style[prop] = h + (offset * vy) + 'px';
+                                break;
+                            case 'bottom':
+                                prop = scope.rFlex ? flexBasis : 'height';
+                                element[0].style[prop] = h - (offset * vy) + 'px';
+                                break;
+                            case 'right':
+                                prop = scope.rFlex ? flexBasis : 'width';
+                                element[0].style[prop] = w - (offset * vx) + 'px';
+                                break;
+                            case 'left':
+                                prop = scope.rFlex ? flexBasis : 'width';
+                                element[0].style[prop] = w + (offset * vx) + 'px';
+                                break;
+                        }
+                        updateInfo(e);
+                    })
                 });
             }
         };

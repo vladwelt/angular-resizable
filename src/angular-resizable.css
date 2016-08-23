@@ -7,9 +7,9 @@
 
 .rg-right, .rg-left, .rg-top, .rg-bottom {
   display: block;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
   position: absolute;
   z-index: 1;
   -moz-user-select: -moz-none;
@@ -22,11 +22,9 @@
   position: absolute;
   box-sizing: border-box;
   display: block;
-  border: 1px solid #ccc;
 }
 
 .rg-right span, .rg-left span {
-  border-width: 0 1px;
   top: 50%;
   margin-top: -10px;
   margin: -10px 0 0 3.5px;
@@ -35,7 +33,6 @@
 }
 
 .rg-top span, .rg-bottom span {
-  border-width: 1px 0;
   left: 50%;
   margin: 3.5px 0 0 -10px;
   width: 20px;
@@ -47,7 +44,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  margin-top: -14px;
+  margin-top: -12px;
 }
 
 .rg-right {
@@ -55,7 +52,7 @@
   height: 100%;
   right: 0;
   top: 0;
-  margin-right: -14px;
+  margin-right: -12px;
 }
 
 .rg-bottom {
@@ -63,7 +60,7 @@
   width: 100%;
   bottom: 0;
   left: 0;
-  margin-bottom: -14px;
+  margin-bottom: -7px;
 }
 
 .rg-left {
@@ -71,5 +68,95 @@
   height: 100%;
   left: 0;
   top: 0;
-  margin-left: -14px;
+  margin-left: -12px;
+}
+
+.rg-right .resize, .rg-left .resize, .rg-top .resize, .rg-bottom .resize {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left:0;
+    margin:auto;
+}
+
+.rg-right button, .rg-left button, .rg-top button, .rg-bottom button {
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  background-color: blue;
+  padding: 0;
+  border:none;
+}
+
+.rg-right button span, .rg-left button span, .rg-top button span, .rg-bottom button span{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 0; 
+    height: 0; 
+}
+
+.rg-right .resize, .rg-left .resize {
+    height: 70px;
+    width: 12px;
+}
+
+.rg-right .o2, .rg-left .o2 {
+    margin-top: 35px;
+}
+
+.rg-right button, .rg-left button {
+  height: 35px;
+  width: 12px;
+}
+
+.rg-right .o1 span, .rg-left .o1 span{
+
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+
+    border-left: 4px solid white;
+    border-right-color: transparent;
+}
+
+.rg-right .o2 span, .rg-left .o2 span{
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+
+    border-right: 4px solid white;
+    border-left-color: transparent;
+}
+
+.rg-top .resize, .rg-bottom .resize {
+  width: 70px;
+  height: 12px;
+}
+
+.rg-top button, .rg-bottom button {
+  width: 35px;
+  height: 12px;
+}
+
+.rg-top .o1 span, .rg-bottom .o1 span{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+
+    border-bottom: 4px solid white;
+    border-top-color: transparent;
+}
+
+.rg-top .o2 span, .rg-bottom .o2 span{
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+
+    border-top: 4px solid white;
+    border-bottom-color: transparent;
+}
+
+.rg-top .o2, .rg-bottom .o2{
+    margin-left: 35px;
 }
