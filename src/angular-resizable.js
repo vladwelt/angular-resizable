@@ -175,19 +175,19 @@ angular.module('angularResizable', [])
                         switch(dir) {
                             case 'top':
                                 prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = h + (offset * vy) + 'px';
+                                element[0].style[prop] = 0 + '%';
                                 break;
                             case 'bottom':
                                 prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = h - (offset * vy) + 'px';
+                                element[0].style[prop] = 0 + '%';
                                 break;
                             case 'right':
                                 prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = w - (offset * vx) + 'px';
+                                element[0].style[prop] = 100 + '%';
                                 break;
                             case 'left':
                                 prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = w + (offset * vx) + 'px';
+                                element[0].style[prop] = 100 + '%';
                                 break;
                         }
                         updateInfo(e);
@@ -208,19 +208,19 @@ angular.module('angularResizable', [])
                         switch(dir) {
                             case 'top':
                                 prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = h + (offset * vy) + 'px';
+                                element[0].style[prop] = 100 + '%';
                                 break;
                             case 'bottom':
                                 prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = h - (offset * vy) + 'px';
+                                element[0].style[prop] = 100 + '%';
                                 break;
                             case 'right':
                                 prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = w - (offset * vx) + 'px';
+                                element[0].style[prop] = 0 + '%';
                                 break;
                             case 'left':
                                 prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = w + (offset * vx) + 'px';
+                                element[0].style[prop] = 0 + '%';
                                 break;
                         }
                         updateInfo(e);
