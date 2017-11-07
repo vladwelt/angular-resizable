@@ -105,6 +105,9 @@
     width: 12px;
 }
 
+.o1, .o2 {
+    cursor: pointer;
+}
 .rg-right .o2, .rg-left .o2 {
     margin-top: 35px;
 }

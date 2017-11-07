@@ -172,22 +172,26 @@ angular.module('angularResizable', [])
                             e='y';
                         }
 
+                        var mid_height=element.parent()[0].offsetHeight/2
+                          , height=element[0].offsetHeight
+                          , width=element[0].offsetWidth
+
                         switch(dir) {
-                            case 'top':
-                                prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = 0 + '%';
-                                break;
                             case 'bottom':
                                 prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = 0 + '%';
-                                break;
-                            case 'right':
-                                prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = 100 + '%';
+                                if(height>mid_height+5){
+                                    element[0].style[prop]=mid_height+'px';
+                                }else{
+                                    element[0].style[prop]='0%';
+                                }
                                 break;
                             case 'left':
                                 prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = 100 + '%';
+                                if(width<360){
+                                    element[0].style[prop]='360px';
+                                }else{
+                                    element[0].style[prop]=100+'%';
+                                }
                                 break;
                         }
                         updateInfo(e);
@@ -205,22 +209,26 @@ angular.module('angularResizable', [])
                             e='y';
                         }
 
+                        var mid_height=element.parent()[0].offsetHeight/2
+                          , height=element[0].offsetHeight
+                          , width=element[0].offsetWidth
+
                         switch(dir) {
                             case 'top':
                                 prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = 100 + '%';
-                                break;
-                            case 'bottom':
-                                prop = scope.rFlex ? flexBasis : 'height';
-                                element[0].style[prop] = 100 + '%';
+                                if(height<mid_height-5){
+                                    element[0].style[prop]=mid_height+'px';
+                                }else{
+                                    element[0].style[prop]=100+'%';
+                                }
                                 break;
                             case 'right':
                                 prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = 0 + '%';
-                                break;
-                            case 'left':
-                                prop = scope.rFlex ? flexBasis : 'width';
-                                element[0].style[prop] = 0 + '%';
+                                if(width>360){
+                                    element[0].style[prop]='360px';
+                                }else{
+                                    element[0].style[prop]='0%';
+                                }
                                 break;
                         }
                         updateInfo(e);
